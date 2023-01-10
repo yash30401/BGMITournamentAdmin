@@ -25,4 +25,5 @@
     </string-array>
 
     <string name="chooseTicketImage">Choose Ticket Image</string>
+    <string name="upload">Upload</string>
 </resources>
