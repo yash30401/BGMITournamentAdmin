@@ -19,9 +19,18 @@
     <string name="warning2">Warning 2: always use different reference id\'s otherwise there will be conflict in the system.</string>
 
     <string-array name="spMatchTimeEnteries">
+        <item>Select Match Time</item>
         <item>Morning</item>
         <item>Afternoon</item>
         <item>Evening</item>
+    </string-array>
+
+    <string-array name="spMatchCategoryEnteries">
+        <item>Select Match Category</item>
+        <item>Erangle</item>
+        <item>Livik</item>
+        <item>Miramar</item>
+        <item>TDM</item>
     </string-array>
 
     <string name="chooseTicketImage">Choose Ticket Image</string>
