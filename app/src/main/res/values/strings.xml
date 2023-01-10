@@ -1,3 +1,26 @@
 <resources>
     <string name="app_name">BGMITournament Admin</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="addPlayer">ADD PLAYER</string>
+    <string name="createMatch">CREATE MATCH</string>
+    <string name="uploadIdAndPass">UPLOAD ID/PASS</string>
+    <string name="deleteIdAndPass">DELETE ID/PASS</string>
+    <string name="enterDate">Enter Date</string>
+    <string name="enterTime">Enter Time</string>
+    <string name="GenerateReferenceId">Generate 5 Digit Reference Id</string>
+    <string name="MatchCharge">Match Charge</string>
+    <string name="MaxParticipants">Max Participants Seats</string>
+    <string name="PositionsWisePrizes">Positions Wise Prizes</string>
+    <string name="selectMatchTime">Select Match Time</string>
+    <string name="selectMatchCategory">Select Match Category</string>
+
+    <string name="warning1">Warning 1: Remember Reference id it willused for uploading id and password.</string>
+    <string name="warning2">Warning 2: always use different reference id\'s otherwise there will be conflict in the system.</string>
+
+    <string-array name="spMatchTimeEnteries">
+        <item>Morning</item>
+        <item>Afternoon</item>
+        <item>Evening</item>
+    </string-array>
 </resources>
