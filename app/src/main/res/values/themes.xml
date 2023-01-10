@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.BGMITournamentAdmin" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.BGMITournamentAdmin" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/topBarcolor</item>
         <item name="colorPrimaryVariant">@color/topBarcolor</item>
@@ -13,4 +13,16 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="spinner_style"  parent="@android:style/Widget.Holo.DropDownItem.Spinner">
+        <item name="android:paddingLeft">0dp</item>
+
+        <item name="android:popupBackground">@color/spinnerBg</item>
+        <item name="android:dropDownHeight">20dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:scrollbarAlwaysDrawVerticalTrack">true</item>
+        <item name="android:dropDownSelector">@android:color/transparent</item>
+    </style>
+
+
 </resources>

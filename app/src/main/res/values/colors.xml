@@ -13,4 +13,7 @@
     <color name="topBarcolor">#810CA8</color>
     <color name="editextbg">#0B010E</color>
     <color name="hintcolor">#AAAAAA</color>
+    <color name="spinnerBg">#FFF</color>
+    <color name="buttonTextColor">#FAEAFF</color>
+    <color name="vibrantColor">#C147E9</color>
 </resources>

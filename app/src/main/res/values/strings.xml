@@ -23,4 +23,6 @@
         <item>Afternoon</item>
         <item>Evening</item>
     </string-array>
+
+    <string name="chooseTicketImage">Choose Ticket Image</string>
 </resources>

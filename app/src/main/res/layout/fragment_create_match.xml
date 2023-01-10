@@ -13,16 +13,20 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        android:scrollbarThumbVertical="@color/vibrantColor"
+        android:scrollbarSize="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:scrollbars="vertical"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:orientation="vertical"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <EditText
                 android:id="@+id/etDate"
@@ -34,8 +38,8 @@
                 android:background="@drawable/editextbg"
                 android:hint="@string/enterDate"
                 android:inputType="date"
-                android:textColor="@color/white"
                 android:paddingLeft="15dp"
+                android:textColor="@color/white"
                 android:textColorHint="@color/hintcolor" />
 
             <EditText
@@ -48,8 +52,8 @@
                 android:background="@drawable/editextbg"
                 android:hint="@string/enterTime"
                 android:inputType="time"
-                android:textColor="@color/white"
                 android:paddingLeft="15dp"
+                android:textColor="@color/white"
                 android:textColorHint="@color/hintcolor" />
 
 
@@ -61,11 +65,11 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/editextbg"
-                android:maxLength="5"
                 android:hint="@string/GenerateReferenceId"
                 android:inputType="number"
-                android:textColor="@color/white"
+                android:maxLength="5"
                 android:paddingLeft="15dp"
+                android:textColor="@color/white"
                 android:textColorHint="@color/hintcolor" />
 
             <EditText
@@ -78,8 +82,8 @@
                 android:background="@drawable/editextbg"
                 android:hint="@string/MatchCharge"
                 android:inputType="numberDecimal"
-                android:textColor="@color/white"
                 android:paddingLeft="15dp"
+                android:textColor="@color/white"
                 android:textColorHint="@color/hintcolor" />
 
             <EditText
@@ -92,8 +96,8 @@
                 android:background="@drawable/editextbg"
                 android:hint="@string/MaxParticipants"
                 android:inputType="number"
-                android:textColor="@color/white"
                 android:paddingLeft="15dp"
+                android:textColor="@color/white"
                 android:textColorHint="@color/hintcolor" />
 
             <EditText
@@ -106,53 +110,84 @@
                 android:background="@drawable/editextbg"
                 android:hint="@string/PositionsWisePrizes"
                 android:inputType="text"
-                android:textColor="@color/white"
                 android:paddingLeft="15dp"
+                android:textColor="@color/white"
                 android:textColorHint="@color/hintcolor" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/cardBgColor"
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="25dp"
                 android:layout_marginRight="25dp"
+                app:cardBackgroundColor="@color/cardBgColor"
                 app:cardCornerRadius="10dp"
 
                 >
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/warning1"
-                    android:textSize="18sp"
-                    android:fontFamily="@font/poppins"
                     android:layout_margin="10dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="@string/warning1"
                     android:textColor="#EB455F"
+                    android:textSize="18sp"
 
                     />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/warning2"
-                    android:textSize="18sp"
-                    android:fontFamily="@font/poppins"
-                    android:layout_marginTop="110dp"
-                    android:textColor="#EB455F"
                     android:layout_marginLeft="10dp"
+                    android:layout_marginTop="110dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginBottom="10dp"
-                    />
+                    android:fontFamily="@font/poppins"
+                    android:text="@string/warning2"
+                    android:textColor="#EB455F"
+                    android:textSize="18sp" />
             </androidx.cardview.widget.CardView>
 
             <Spinner
                 android:id="@+id/spMatchTime"
+                style="@style/spinner_style"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_margin="20dp"
+                android:background="@color/white"
+                android:backgroundTint="@color/white"
+                android:entries="@array/spMatchTimeEnteries"
+                android:gravity="center"
+                android:spinnerMode="dropdown"
+                android:textAlignment="center"
+                android:textColor="@color/white" />
+
+            <Spinner
+                android:id="@+id/spMatchCategory"
+                style="@style/spinner_style"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_margin="20dp"
+                android:background="@color/white"
+                android:backgroundTint="@color/white"
+                android:entries="@array/spMatchTimeEnteries"
+                android:gravity="center"
+                android:spinnerMode="dropdown"
+                android:textAlignment="center"
+                android:textColor="@color/white" />
+
+            <android.widget.Button
+                android:id="@+id/btnUploadImage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@android:color/transparent"
-                android:entries="@array/spMatchTimeEnteries"
                 android:layout_margin="20dp"
-                android:spinnerMode="dropdown"
+                android:background="@drawable/buttonbg"
+                android:text="@string/chooseTicketImage"
+                android:fontFamily="@font/poppins"
+                android:elevation="10dp"
+                android:textColor="@color/buttonTextColor"
+                android:letterSpacing="0.07"
                 />
 
         </LinearLayout>
