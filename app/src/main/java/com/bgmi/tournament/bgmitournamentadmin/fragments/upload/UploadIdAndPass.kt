@@ -73,7 +73,14 @@ class UploadIdAndPass : Fragment(R.layout.fragment_upload_id_and_pass) {
             hashMap.put("roomPass",roomPass)
 
         databaseReference.child(matchTime).child(refNumber).updateChildren(hashMap.toMap()).addOnCompleteListener {
+
+            binding.etroomID.editText?.text?.clear()
+            binding.etroomPass.editText?.text?.clear()
+            binding.etRefIdUpload.editText?.text?.clear()
+
             Toast.makeText(context, "Id And Pass Uploaded Successfully", Toast.LENGTH_SHORT).show()
+
+
         }.addOnFailureListener {
             Toast.makeText(context, "Something Went Wrong", Toast.LENGTH_SHORT).show()
         }
