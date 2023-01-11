@@ -16,6 +16,7 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ProgressBar
 import android.widget.Toast
+import androidx.core.view.get
 import com.bgmi.tournament.bgmitournamentadmin.R
 import com.bgmi.tournament.bgmitournamentadmin.databinding.FragmentCreateMatchBinding
 import com.bgmi.tournament.bgmitournamentadmin.modal.createMatchModal
@@ -89,8 +90,6 @@ class CreateMatch : Fragment(R.layout.fragment_create_match) {
                 Toast.makeText(context, "Please Select Match Time", Toast.LENGTH_SHORT).show()
             }else if(matchCategory.equals("Select Match Category")){
                 Toast.makeText(context, "Please Select Match Category", Toast.LENGTH_SHORT).show()
-            }else if(bitmap==null){
-                Toast.makeText(context, "Please Select Ticket Image", Toast.LENGTH_SHORT).show()
             }else{
                 uploadImage()
             }
@@ -187,6 +186,15 @@ class CreateMatch : Fragment(R.layout.fragment_create_match) {
 
 
         firebaseDatabase.child(matchTimeSpinner).child(refID).setValue(matchData).addOnSuccessListener {
+
+            binding.etDate.text.clear()
+            binding.etTime.text.clear()
+            binding.etRefId.text.clear()
+            binding.etMaxParticipants.text.clear()
+            binding.etMatchCharge.text.clear()
+            binding.etPrizes.text.clear()
+            binding.ticketImage.visibility=View.GONE
+
             Toast.makeText(context, "Match Uploaded", Toast.LENGTH_SHORT).show()
         }.addOnFailureListener {
             Toast.makeText(context, "Check Your Connection", Toast.LENGTH_SHORT).show()
