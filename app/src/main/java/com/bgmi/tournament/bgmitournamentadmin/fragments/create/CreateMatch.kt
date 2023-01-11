@@ -181,7 +181,7 @@ class CreateMatch : Fragment(R.layout.fragment_create_match) {
             }catch (e:IOException){
                 Log.d("Error",e.printStackTrace().toString())
             }
-
+//hellow
             binding.ticketImage.setImageBitmap(bitmap)
             binding.ticketImage.visibility=View.VISIBLE
         }
