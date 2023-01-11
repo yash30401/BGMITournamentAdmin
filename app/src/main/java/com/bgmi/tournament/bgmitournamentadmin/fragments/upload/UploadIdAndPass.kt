@@ -16,6 +16,8 @@ class UploadIdAndPass : Fragment(R.layout.fragment_upload_id_and_pass) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding= FragmentUploadIdAndPassBinding.bind(view)
+
+
     }
 
 }

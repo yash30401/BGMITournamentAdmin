@@ -35,4 +35,9 @@
 
     <string name="chooseTicketImage">Choose Ticket Image</string>
     <string name="upload">Upload</string>
+    <string name="uploadIdAndPassheading">Upload ID And PASS</string>
+    <string name="enterRoomId">Enter ROOM ID</string>
+    <string name="enterRoomPass">Enter ROOM Password</string>
+    <string name="enterRefId">Enter Referenece ID</string>
+    <string name="uploadIDPassNote">NOTE: Please enter the reference ID that you used while creating the match.</string>
 </resources>
