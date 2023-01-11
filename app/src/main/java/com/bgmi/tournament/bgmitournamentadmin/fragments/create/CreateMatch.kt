@@ -18,13 +18,17 @@ import android.widget.ProgressBar
 import android.widget.Toast
 import com.bgmi.tournament.bgmitournamentadmin.R
 import com.bgmi.tournament.bgmitournamentadmin.databinding.FragmentCreateMatchBinding
+import com.bgmi.tournament.bgmitournamentadmin.modal.createMatchModal
 import com.google.android.gms.auth.api.signin.internal.Storage
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.OnFailureListener
+import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ktx.FirebaseDatabaseKtxRegistrar
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.UploadTask
 import com.google.firebase.storage.ktx.storage
 import java.io.ByteArrayOutputStream
@@ -43,8 +47,8 @@ class CreateMatch : Fragment(R.layout.fragment_create_match) {
     private lateinit var matchTimeSpinner:String
     private lateinit var matchCategory:String
 
-    private lateinit var firebaseDatabase: FirebaseDatabase
-    private lateinit var firebaseStorage: FirebaseStorage
+    private lateinit var firebaseDatabase: DatabaseReference
+    private lateinit var firebaseStorage: StorageReference
 
     private lateinit var progressDialog: ProgressDialog
 
@@ -52,11 +56,12 @@ class CreateMatch : Fragment(R.layout.fragment_create_match) {
         super.onViewCreated(view, savedInstanceState)
         binding= FragmentCreateMatchBinding.bind(view)
 
-        firebaseDatabase=Firebase.database
-        firebaseDatabase.getReference().child("Matches")
 
-        firebaseStorage=Firebase.storage
-        firebaseStorage.getReference().child("Matches")
+        firebaseDatabase=FirebaseDatabase.getInstance().getReference("Matches")
+
+        firebaseStorage=FirebaseStorage.getInstance().getReference().child("Matches")
+
+
 
         progressDialog= ProgressDialog(context)
 
@@ -100,8 +105,10 @@ class CreateMatch : Fragment(R.layout.fragment_create_match) {
         val byteArrayOutputStream=ByteArrayOutputStream()
         bitmap.compress(Bitmap.CompressFormat.JPEG,58,byteArrayOutputStream)
         val finalImage=byteArrayOutputStream.toByteArray()
-        val filePath=firebaseStorage.getReference().child(binding.etRefId.text.toString()+"jpg")
+        val filePath=firebaseStorage.child(binding.etRefId.text.toString()+"jpg")
         val uploadTask:UploadTask=filePath.putBytes(finalImage)
+
+
 
         uploadTask.addOnCompleteListener(OnCompleteListener {task ->  
 
@@ -109,8 +116,7 @@ class CreateMatch : Fragment(R.layout.fragment_create_match) {
                 uploadTask.addOnSuccessListener {
                     filePath.downloadUrl.addOnSuccessListener {uri->
 
-                        uploadData(uri)
-                        Toast.makeText(context, "Match Uploaded", Toast.LENGTH_SHORT).show()
+                        UploadData(uri)
                         progressDialog.dismiss()
                     }
                 }
@@ -119,11 +125,14 @@ class CreateMatch : Fragment(R.layout.fragment_create_match) {
         }).addOnFailureListener(OnFailureListener { fail->
 
             Toast.makeText(context, "Check Your Network Connection", Toast.LENGTH_SHORT).show()
-
+            progressDialog.dismiss()
         })
+
+
     }
 
-    private fun uploadData(uri: Uri) {
+    private fun UploadData(uri: Uri?) {
+
         val matchDate=binding.etDate.text.toString()
         val matchTime=binding.etTime.text.toString()
         val refID=binding.etRefId.text.toString()
@@ -131,11 +140,30 @@ class CreateMatch : Fragment(R.layout.fragment_create_match) {
         val matchCharge=binding.etMatchCharge.text.toString()
         val roomId="Not Available"
         val roomPass="Not Available"
+        val prizes =binding.etPrizes.text.toString()
 
         val calendar=Calendar.getInstance()
         val currentDate=SimpleDateFormat("dd-MM-yy")
         val date=currentDate.format(calendar.time)
+
+
+        val currentTime=SimpleDateFormat("hh:mm a")
+        val time=currentTime.format(calendar.time)
+
+        val matchData=createMatchModal(date,time,refID,matchCharge,slots,matchTime,matchDate,uri.toString(),matchTimeSpinner,
+            matchCategory,roomId,roomPass,prizes)
+
+        Log.d("TIME","${date.toString()}, ${time.toString()}")
+
+
+
+        firebaseDatabase.child(matchTimeSpinner).child(refID).setValue(matchData).addOnSuccessListener {
+            Toast.makeText(context, "Match Uploaded", Toast.LENGTH_SHORT).show()
+        }.addOnFailureListener {
+            Toast.makeText(context, "Check Your Connection", Toast.LENGTH_SHORT).show()
+        }
     }
+
 
     private fun uploadImage() {
         val intent= Intent(Intent.ACTION_PICK,MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
