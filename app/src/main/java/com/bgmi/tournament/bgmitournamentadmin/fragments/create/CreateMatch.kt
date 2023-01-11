@@ -66,7 +66,36 @@ class CreateMatch : Fragment(R.layout.fragment_create_match) {
         progressDialog= ProgressDialog(context)
 
         binding.btnUploadImage.setOnClickListener {
-            uploadImage()
+
+            if(binding.etDate.text.toString().isEmpty()){
+                binding.etDate.setError("Empty Date!")
+                binding.etDate.requestFocus()
+            }else if(binding.etTime.text.toString().isEmpty()){
+                binding.etTime.setError("Empty Time!")
+                binding.etTime.requestFocus()
+            }else if(binding.etRefId.text.toString().isEmpty()){
+                binding.etRefId.setError("Empty Reference ID!")
+                binding.etRefId.requestFocus()
+            }else if(binding.etMatchCharge.text.toString().isEmpty()){
+                binding.etMatchCharge.setError("Empty Match Charge!")
+                binding.etMatchCharge.requestFocus()
+            }else if(binding.etMaxParticipants.text.toString().isEmpty()){
+                binding.etMaxParticipants.setError("Empty Slots!")
+                binding.etMaxParticipants.requestFocus()
+            }else if(binding.etPrizes.text.toString().isEmpty()){
+                binding.etPrizes.setError("Empty Prizes!")
+                binding.etPrizes.requestFocus()
+            }else if(matchTimeSpinner.equals("Select Match Time")){
+                Toast.makeText(context, "Please Select Match Time", Toast.LENGTH_SHORT).show()
+            }else if(matchCategory.equals("Select Match Category")){
+                Toast.makeText(context, "Please Select Match Category", Toast.LENGTH_SHORT).show()
+            }else if(bitmap==null){
+                Toast.makeText(context, "Please Select Ticket Image", Toast.LENGTH_SHORT).show()
+            }else{
+                uploadImage()
+            }
+
+
         }
 
 
@@ -181,7 +210,7 @@ class CreateMatch : Fragment(R.layout.fragment_create_match) {
             }catch (e:IOException){
                 Log.d("Error",e.printStackTrace().toString())
             }
-//hellow
+
             binding.ticketImage.setImageBitmap(bitmap)
             binding.ticketImage.visibility=View.VISIBLE
         }
