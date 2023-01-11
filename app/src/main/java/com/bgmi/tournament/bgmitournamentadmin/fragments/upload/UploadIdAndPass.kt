@@ -9,8 +9,7 @@ import android.widget.AdapterView
 import android.widget.Toast
 import com.bgmi.tournament.bgmitournamentadmin.R
 import com.bgmi.tournament.bgmitournamentadmin.databinding.FragmentUploadIdAndPassBinding
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 
 
 class UploadIdAndPass : Fragment(R.layout.fragment_upload_id_and_pass) {
@@ -63,7 +62,21 @@ class UploadIdAndPass : Fragment(R.layout.fragment_upload_id_and_pass) {
     }
 
     private fun uploadIdAndPass() {
+        val refNumber=binding.etRefIdUpload.editText?.text.toString()
+        val roomId=binding.etroomID.editText?.text.toString()
+        val roomPass=binding.etroomPass.editText?.text.toString()
 
+
+
+           val hashMap=HashMap<String,String>()
+            hashMap.put("roomId",roomId)
+            hashMap.put("roomPass",roomPass)
+
+        databaseReference.child(matchTime).child(refNumber).updateChildren(hashMap.toMap()).addOnCompleteListener {
+            Toast.makeText(context, "Id And Pass Uploaded Successfully", Toast.LENGTH_SHORT).show()
+        }.addOnFailureListener {
+            Toast.makeText(context, "Something Went Wrong", Toast.LENGTH_SHORT).show()
+        }
     }
 
 }
