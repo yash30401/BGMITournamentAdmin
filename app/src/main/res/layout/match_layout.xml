@@ -1,0 +1,638 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        app:cardBackgroundColor="@color/cardBgColor"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        app:cardCornerRadius="10dp"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                    android:background="@color/hintcolor"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                   android:layout_margin="2dp"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="105dp"
+                        app:cardBackgroundColor="@color/bgColor"
+                        style="@style/CustomCardViewStyle"
+                        app:cardElevation="5dp"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:text="@string/uploadDate"
+                            android:textColor="@color/white"
+                            android:padding="2dp"
+                            android:layout_gravity="center"
+                            android:textSize="14sp"
+                            android:textAllCaps="true"
+                            android:fontFamily="@font/poppins"
+                            />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="75dp"
+                        app:cardBackgroundColor="@color/white"
+                        style="@style/CustomCardViewStyle2"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:text="06/07/2021"
+                            android:textColor="#232323"
+                            android:padding="2dp"
+                            android:layout_gravity="center"
+                            android:textSize="14sp"
+                            android:textAlignment="center"
+                            android:textAllCaps="true"
+                            android:fontFamily="@font/poppins"
+                            />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="2dp"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="105dp"
+                        app:cardBackgroundColor="@color/bgColor"
+                        style="@style/CustomCardViewStyle"
+
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:text="@string/uploadTime"
+                            android:textColor="@color/white"
+                            android:padding="2dp"
+                            android:layout_gravity="center"
+                            android:textAllCaps="true"
+                            android:fontFamily="@font/poppins"
+                            />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="75dp"
+                        app:cardBackgroundColor="@color/white"
+                        style="@style/CustomCardViewStyle2"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:text="10:04 PM"
+                            android:textColor="#232323"
+                            android:padding="2dp"
+                            android:layout_gravity="center"
+                            android:textAlignment="center"
+                            android:textAllCaps="true"
+                            android:fontFamily="@font/poppins"
+                            />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="2dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="105dp"
+                    app:cardBackgroundColor="@color/bgColor"
+                    style="@style/CustomCardViewStyle"
+                    app:cardElevation="5dp"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:includeFontPadding="false"
+                        android:text="@string/referenceID"
+                        android:textColor="@color/white"
+                        android:padding="2dp"
+                        android:layout_gravity="center"
+                        android:textSize="14sp"
+                        android:textAllCaps="true"
+                        android:fontFamily="@font/poppins"
+                        />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="75dp"
+                    app:cardBackgroundColor="@color/white"
+                    style="@style/CustomCardViewStyle2"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:includeFontPadding="false"
+                        android:text="22222"
+                        android:textColor="#232323"
+                        android:padding="2dp"
+                        android:layout_gravity="center"
+                        android:textAlignment="center"
+                        android:textSize="14sp"
+                        android:textAllCaps="true"
+                        android:fontFamily="@font/poppins"
+                        />
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="2dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="105dp"
+                    app:cardBackgroundColor="@color/bgColor"
+                    style="@style/CustomCardViewStyle"
+                    app:cardElevation="5dp"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:includeFontPadding="false"
+                        android:text="@string/slots"
+                        android:textColor="@color/white"
+                        android:padding="2dp"
+                        android:layout_gravity="center"
+                        android:textSize="14sp"
+                        android:textAllCaps="true"
+                        android:fontFamily="@font/poppins"
+                        />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="75dp"
+                    app:cardBackgroundColor="@color/white"
+                    style="@style/CustomCardViewStyle2"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:includeFontPadding="false"
+                        android:text="100"
+                        android:textColor="#232323"
+                        android:padding="2dp"
+                        android:layout_gravity="center"
+                        android:textAlignment="center"
+                        android:textSize="14sp"
+                        android:textAllCaps="true"
+                        android:fontFamily="@font/poppins"
+                        />
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="2dp"
+                    android:gravity="start"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="150dp"
+                        app:cardBackgroundColor="@color/bgColor"
+                        style="@style/CustomCardViewStyle"
+                        app:cardElevation="5dp"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:text="@string/matchCategory"
+                            android:textColor="@color/white"
+                            android:padding="2dp"
+                            android:layout_gravity="center_horizontal"
+                            android:textSize="14sp"
+                            android:textAllCaps="true"
+                            android:fontFamily="@font/poppins"
+                            />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="90dp"
+                        app:cardBackgroundColor="@color/white"
+                        style="@style/CustomCardViewStyle2"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:text="Morning"
+                            android:textColor="#232323"
+                            android:padding="2dp"
+                            android:layout_gravity="center"
+                            android:textAlignment="center"
+                            android:textSize="14sp"
+                            android:textAllCaps="true"
+                            android:fontFamily="@font/poppins"
+                            />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="2dp"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="105dp"
+                        app:cardBackgroundColor="@color/bgColor"
+                        style="@style/CustomCardViewStyle"
+                        app:cardElevation="5dp"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:text="@string/matchDate"
+                            android:textColor="@color/white"
+                            android:padding="2dp"
+                            android:layout_gravity="center"
+                            android:textSize="14sp"
+                            android:textAllCaps="true"
+                            android:fontFamily="@font/poppins"
+                            />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="75dp"
+                        app:cardBackgroundColor="@color/white"
+                        style="@style/CustomCardViewStyle2"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:text="01/01/2022"
+                            android:textColor="#232323"
+                            android:padding="2dp"
+                            android:layout_gravity="center"
+                            android:textAlignment="center"
+                            android:textSize="14sp"
+                            android:textAllCaps="true"
+                            android:fontFamily="@font/poppins"
+                            />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="2dp"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="105dp"
+                        app:cardBackgroundColor="@color/bgColor"
+                        style="@style/CustomCardViewStyle"
+                        app:cardElevation="5dp"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:text="@string/matchTime"
+                            android:textColor="@color/white"
+                            android:padding="2dp"
+                            android:layout_gravity="center"
+                            android:textSize="14sp"
+                            android:textAllCaps="true"
+                            android:fontFamily="@font/poppins"
+                            />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="75dp"
+                        app:cardBackgroundColor="@color/white"
+                        style="@style/CustomCardViewStyle2"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:text="9:00 AM"
+                            android:textColor="#232323"
+                            android:padding="2dp"
+                            android:layout_gravity="center"
+                            android:textAlignment="center"
+                            android:textSize="14sp"
+                            android:textAllCaps="true"
+                            android:fontFamily="@font/poppins"
+                            />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="2dp"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="105dp"
+                        app:cardBackgroundColor="@color/bgColor"
+                        style="@style/CustomCardViewStyle"
+                        app:cardElevation="5dp"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:text="@string/roomId"
+                            android:textColor="@color/white"
+                            android:padding="2dp"
+
+                            android:layout_gravity="center"
+                            android:textSize="14sp"
+                            android:textAllCaps="true"
+                            android:fontFamily="@font/poppins"
+                            />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="75dp"
+                        app:cardBackgroundColor="@color/white"
+                        style="@style/CustomCardViewStyle2"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:text="Not Available"
+                            android:textAlignment="center"
+                            android:textColor="#232323"
+                            android:padding="2dp"
+
+                            android:layout_gravity="center"
+                            android:textSize="14sp"
+                            android:textAllCaps="true"
+                            android:fontFamily="@font/poppins"
+                            />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="2dp"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="105dp"
+                        app:cardBackgroundColor="@color/bgColor"
+                        style="@style/CustomCardViewStyle"
+                        app:cardElevation="5dp"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:text="@string/roomPass"
+                            android:textColor="@color/white"
+                            android:padding="2dp"
+                            android:layout_gravity="center"
+                            android:textSize="14sp"
+                            android:textAllCaps="true"
+                            android:fontFamily="@font/poppins"
+                            />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="75dp"
+                        app:cardBackgroundColor="@color/white"
+                        style="@style/CustomCardViewStyle2"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:text="Not Available"
+                            android:textColor="#232323"
+                            android:padding="2dp"
+                            android:textAlignment="center"
+                            android:layout_gravity="center"
+                            android:textSize="14sp"
+                            android:textAllCaps="true"
+                            android:fontFamily="@font/poppins"
+                            />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mapName"
+                android:textColor="@color/bgColor"
+                android:textSize="20sp"
+                android:textAllCaps="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:includeFontPadding="false"
+                android:fontFamily="@font/poppins"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="5dp"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="150dp"
+                    app:cardBackgroundColor="@color/bgColor"
+                    style="@style/prizes"
+
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:includeFontPadding="false"
+                        android:textAlignment="center"
+                        android:layout_margin="10dp"
+                        android:layout_gravity="center"
+                        android:textAllCaps="true"
+                        android:textSize="20sp"
+                        android:text="Prizes"/>
+
+                </com.google.android.material.card.MaterialCardView>
+
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="150dp"
+                    app:cardBackgroundColor="@color/white"
+                    style="@style/prizes2"
+
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#232323"
+                        android:includeFontPadding="false"
+                        android:textAlignment="center"
+                        android:layout_margin="10dp"
+                        android:layout_gravity="center"
+                        android:textAllCaps="true"
+                        android:textSize="20sp"
+                        android:text="Prizes"/>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>
