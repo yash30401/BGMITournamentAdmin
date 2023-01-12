@@ -10,9 +10,9 @@ import com.bgmi.tournament.bgmitournamentadmin.modal.createMatchModal
 import com.google.firebase.database.ValueEventListener
 import com.squareup.picasso.Picasso
 
-class DeleteAdapter(val delete: ValueEventListener, val matchData:ArrayList<createMatchModal>):RecyclerView.Adapter<DeleteAdapter.DeleteViewHolder>() {
+class DeleteAdapter(val delete: deleteMatchData, val allMatchData:List<createMatchModal>):RecyclerView.Adapter<DeleteAdapter.DeleteViewHolder>() {
 
-    val allMatchData=ArrayList<createMatchModal>()
+
 
     inner class DeleteViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
         var binding=MatchLayoutBinding.bind(itemView)
@@ -50,7 +50,7 @@ class DeleteAdapter(val delete: ValueEventListener, val matchData:ArrayList<crea
         holder.binding.f3rdPrize.text=matchData.prize
         holder.binding.fEntryPrice.text="Entery Price: ₹${matchData.matchCharge}"
 
-        Picasso.get().load(matchData.imageUrl).into(holder.binding.ftikcetImage)
+
 
     }
 

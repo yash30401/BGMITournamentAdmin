@@ -3,6 +3,7 @@ package com.bgmi.tournament.bgmitournamentadmin.fragments.delete
 import android.app.AlertDialog
 import android.content.DialogInterface
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -20,7 +21,6 @@ class DeleteIdAndPass : Fragment(R.layout.fragment_delete_id_and_pass),deleteMat
     private lateinit var binding: FragmentDeleteIdAndPassBinding
     private lateinit var reference: DatabaseReference
 
-    private lateinit var matchData:ArrayList<createMatchModal>
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -31,33 +31,16 @@ class DeleteIdAndPass : Fragment(R.layout.fragment_delete_id_and_pass),deleteMat
        binding.recyclerView.layoutManager=LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false)
         binding.recyclerView.setHasFixedSize(true)
 
-        getData()
+        val dataList = mutableListOf<createMatchModal>()
+        val adapter = DeleteAdapter(this,dataList)
+        binding.recyclerView.adapter=adapter
+
+
 
     }
 
-    private fun getData() {
 
-        reference.addValueEventListener(object: ValueEventListener{
-            override fun onDataChange(snapshot: DataSnapshot) {
-               matchData=ArrayList<createMatchModal>()
 
-                for(snapshots in snapshot.children){
-                    val createMatchModal: createMatchModal = snapshots.getValue(createMatchModal::class.java)!!
-                    matchData.add(0,createMatchModal)
-                }
-                val adapter=DeleteAdapter(this,matchData)
-                adapter.notifyDataSetChanged()
-                binding.progressBar.visibility=View.GONE
-                binding.recyclerView.adapter=adapter
-
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                Toast.makeText(context, "No Data Found", Toast.LENGTH_SHORT).show()
-                binding.progressBar.visibility=View.GONE
-            }
-        })
-    }
 
     override fun deleteMatch(matchModal: createMatchModal) {
 
@@ -71,7 +54,7 @@ class DeleteIdAndPass : Fragment(R.layout.fragment_delete_id_and_pass),deleteMat
         builder.setPositiveButton("Delete", DialogInterface.OnClickListener { dialogInterface, i ->
 
             val databaseReference=FirebaseDatabase.getInstance().getReference().child("Matches")
-            databaseReference.child(matchModal.matchDuration).child(matchModal.refId).removeValue().addOnSuccessListener {
+            databaseReference.child(matchModal.matchDuration!!).child(matchModal.refId!!).removeValue().addOnSuccessListener {
                 Toast.makeText(context, "Deleted Successfully", Toast.LENGTH_SHORT).show()
             }.addOnFailureListener {
                 Toast.makeText(context, "Something Went Wrong!", Toast.LENGTH_SHORT).show()

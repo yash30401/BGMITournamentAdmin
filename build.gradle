@@ -22,6 +22,22 @@ plugins {
     id 'org.jetbrains.kotlin.android' version '1.7.10' apply false
 }
 
+ext {
+    activityVersion = '1.4.0'
+
+
+
+    coroutines = '1.5.2'
+    lifecycleVersion = '2.4.0'
+
+    roomVersion = '2.3.0'
+    // testing
+
+
+
+}
+
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+

@@ -1,5 +1,9 @@
 package com.bgmi.tournament.bgmitournamentadmin.modal
 
-data class createMatchModal(val uploadDate:String,val uploadTime:String,val refId:String,val matchCharge:String,val slots:String,
-                            val matchTime:String,val matchDate:String,val imageUrl:String,val matchDuration:String,val matchCategory:String,
-                            val roomId:String,val roomPass:String,val prize:String)
+import androidx.annotation.Keep
+
+@Keep
+data class createMatchModal(var uploadDate:String?=null,var uploadTime:String?=null,var refId:String?=null,var matchCharge:String?=null,var slots:String?=null,
+                            var matchTime:String?=null,var matchDate:String?=null,var imageUrl:String?=null,var matchDuration:String?=null,var matchCategory:String?=null,
+                            var roomId:String?=null,var roomPass:String?=null,var prize:String?=null)
+
