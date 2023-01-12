@@ -595,9 +595,10 @@
                         android:textColor="@color/white"
                         android:includeFontPadding="false"
                         android:textAlignment="center"
-                        android:layout_margin="10dp"
+                        android:layout_margin="8dp"
                         android:layout_gravity="center"
                         android:textAllCaps="true"
+                        android:fontFamily="@font/poppins"
                         android:textSize="20sp"
                         android:text="Prizes"/>
 
@@ -611,23 +612,116 @@
 
                     android:layout_height="wrap_content">
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="#232323"
-                        android:includeFontPadding="false"
-                        android:textAlignment="center"
-                        android:layout_margin="10dp"
-                        android:layout_gravity="center"
-                        android:textAllCaps="true"
-                        android:textSize="20sp"
-                        android:text="Prizes"/>
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="1st:"
+                                android:layout_marginStart="10dp"
+                                android:layout_weight="1"
+                                android:textSize="17sp"
+                                android:textColor="#232323"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="200"
+                                android:layout_weight="1"
+                                android:gravity="end"
+                                android:layout_marginEnd="20dp"
+                                android:textSize="17sp"
+                                android:textColor="@color/vibrantColor"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="2nd:"
+                                android:layout_marginStart="10dp"
+                                android:layout_weight="1"
+                                android:textSize="17sp"
+                                android:textColor="#232323"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="100"
+                                android:layout_weight="1"
+                                android:gravity="end"
+                                android:layout_marginEnd="20dp"
+                                android:textSize="17sp"
+                                android:textColor="@color/vibrantColor"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="3rd:"
+                                android:layout_marginStart="10dp"
+                                android:layout_weight="1"
+                                android:textSize="17sp"
+                                android:textColor="#232323"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="50"
+                                android:layout_weight="1"
+                                android:gravity="end"
+                                android:layout_marginEnd="20dp"
+                                android:textSize="17sp"
+                                android:textColor="@color/vibrantColor"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
 
                 </com.google.android.material.card.MaterialCardView>
 
+
+
             </LinearLayout>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:textColor="@color/bgColor"
+                android:fontFamily="@font/poppins"
+                android:text="@string/entryPrice"/>
+
         </LinearLayout>
+
+            <android.widget.Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/delete"
+                android:layout_margin="10dp"
+                android:textColor="@color/white"
+                android:background="@drawable/rippleeffect"/>
 
 
 
