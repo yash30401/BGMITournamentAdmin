@@ -1,5 +1,6 @@
 package com.bgmi.tournament.bgmitournamentadmin.repository
 
+import androidx.lifecycle.MutableLiveData
 import com.bgmi.tournament.bgmitournamentadmin.modal.createMatchModal
 import com.google.firebase.database.*
 
@@ -19,15 +20,17 @@ class matchDataRepository {
 
     }
 
-    fun loadMatchData(matchList:MutableList<List<createMatchModal>>){
+    fun loadMatchData(matchList:MutableLiveData<List<createMatchModal>>){
         databaseReference.addValueEventListener(object :ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
 
                 try{
 
-                    val matchList:List<createMatchModal> = snapshot.children.map { dataSnapshot ->
+                    val _matchList:List<createMatchModal> = snapshot.children.map { dataSnapshot ->
                         dataSnapshot.getValue(createMatchModal::class.java)!!
                     }
+
+                    matchList.postValue(_matchList)
 
                 }catch(e:Exception){
 
