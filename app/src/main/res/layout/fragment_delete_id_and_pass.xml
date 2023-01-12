@@ -4,14 +4,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bgColor"
+    android:focusable="true"
+    android:clickable="true"
     android:elevation="20dp"
     tools:context=".fragments.delete.DeleteIdAndPass">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textColor="@color/white"
-        android:text="Delete Match" />
+        tools:listitem="@layout/match_layout"
+        />
+    
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:id="@+id/progressBar"/>
 
 </FrameLayout>

@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
@@ -20,6 +20,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
+                android:id="@+id/ftikcetImage"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
                     android:background="@color/hintcolor"/>
@@ -67,6 +68,7 @@
                         android:layout_height="wrap_content">
 
                         <TextView
+                            android:id="@+id/fUploadDate"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:includeFontPadding="false"
@@ -121,6 +123,7 @@
                         android:layout_height="wrap_content">
 
                         <TextView
+                            android:id="@+id/fUploadTime"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:includeFontPadding="false"
@@ -184,6 +187,7 @@
                     android:layout_height="wrap_content">
 
                     <TextView
+                        android:id="@+id/fUploadRefId"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:includeFontPadding="false"
@@ -239,6 +243,7 @@
                     android:layout_height="wrap_content">
 
                     <TextView
+                        android:id="@+id/fUploadSlots"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:includeFontPadding="false"
@@ -302,6 +307,7 @@
                         android:layout_height="wrap_content">
 
                         <TextView
+                            android:id="@+id/fUploadMatchCategory"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:includeFontPadding="false"
@@ -364,6 +370,7 @@
                         android:layout_height="wrap_content">
 
                         <TextView
+                            android:id="@+id/fMatchDate"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:includeFontPadding="false"
@@ -419,6 +426,7 @@
                         android:layout_height="wrap_content">
 
                         <TextView
+                            android:id="@+id/fMatchTime"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:includeFontPadding="false"
@@ -482,6 +490,7 @@
                         android:layout_height="wrap_content">
 
                         <TextView
+                            android:id="@+id/fRoomId"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:includeFontPadding="false"
@@ -538,6 +547,7 @@
                         android:layout_height="wrap_content">
 
                         <TextView
+                            android:id="@+id/fRoomPass"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:includeFontPadding="false"
@@ -558,6 +568,7 @@
             </LinearLayout>
 
             <TextView
+                android:id="@+id/map"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/mapName"
@@ -632,6 +643,7 @@
                                 android:textColor="#232323"/>
 
                             <TextView
+                                android:id="@+id/f1stPrize"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="200"
@@ -658,6 +670,7 @@
                                 android:textColor="#232323"/>
 
                             <TextView
+                                android:id="@+id/f2ndPrize"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="100"
@@ -684,6 +697,7 @@
                                 android:textColor="#232323"/>
 
                             <TextView
+                                android:id="@+id/f3rdPrize"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="50"
@@ -704,11 +718,13 @@
             </LinearLayout>
 
             <TextView
+                android:id="@+id/fEntryPrice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:textAlignment="center"
                 android:textSize="20sp"
+                android:includeFontPadding="false"
                 android:textColor="@color/bgColor"
                 android:fontFamily="@font/poppins"
                 android:text="@string/entryPrice"/>
@@ -716,9 +732,11 @@
         </LinearLayout>
 
             <android.widget.Button
+                android:id="@+id/btnDelete"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/delete"
+                android:includeFontPadding="false"
                 android:layout_margin="10dp"
                 android:textColor="@color/white"
                 android:background="@drawable/rippleeffect"/>
