@@ -24,8 +24,7 @@ class DeleteAdapter(val delete: deleteMatchData):RecyclerView.Adapter<DeleteAdap
 
 
         viewHolder.binding.btnDelete.setOnClickListener {
-            delete.deleteMatch(allMatchData[viewHolder.adapterPosition])
-            notifyItemRemoved(viewHolder.adapterPosition)
+            delete.deleteMatch(allMatchData[viewHolder.adapterPosition],viewHolder.adapterPosition)
         }
 
 
@@ -68,6 +67,6 @@ class DeleteAdapter(val delete: deleteMatchData):RecyclerView.Adapter<DeleteAdap
 }
 
 interface deleteMatchData{
-    fun deleteMatch(matchModal: createMatchModal)
+    fun deleteMatch(matchModal: createMatchModal,position:Int)
 
 }
