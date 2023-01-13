@@ -46,10 +46,23 @@ class DeleteAdapter(val delete: deleteMatchData):RecyclerView.Adapter<DeleteAdap
         holder.binding.fRoomId.text=matchData.roomId.toString()
         holder.binding.fRoomPass.text=matchData.roomPass.toString()
         holder.binding.map.text=matchData.matchCategory.toString()
-        holder.binding.f1stPrize.text=matchData.prize.toString()
-        holder.binding.f2ndPrize.text=matchData.prize.toString()
-        holder.binding.f3rdPrize.text=matchData.prize.toString()
-        holder.binding.fEntryPrice.text="Entery Price: ₹${matchData.matchCharge.toString()}"
+
+        val prize=matchData.prize.toString()
+
+        val prizeList=prize.split(",")
+
+        if(prize.contains(",")) {
+            holder.binding.f1stPrize.text =  "₹"+prizeList.get(0)
+            holder.binding.f2ndPrize.text =  "₹"+prizeList.get(1)
+            holder.binding.f3rdPrize.text = "₹"+prizeList.get(2)
+
+        }else{
+            holder.binding.f1stPrize.text = "₹"+matchData.prize.toString()
+            holder.binding.f2ndPrize.text =  "₹"+matchData.prize.toString()
+            holder.binding.f3rdPrize.text =  "₹"+matchData.prize.toString()
+
+        }
+        holder.binding.fEntryPrice.text = "Entery Price: ₹${matchData.matchCharge.toString()}"
 
         Picasso.get().load(matchData.imageUrl).into(holder.binding.ftikcetImage)
 
