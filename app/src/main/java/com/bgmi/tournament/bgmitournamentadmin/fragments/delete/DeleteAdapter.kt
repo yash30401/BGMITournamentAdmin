@@ -10,9 +10,10 @@ import com.bgmi.tournament.bgmitournamentadmin.modal.createMatchModal
 import com.google.firebase.database.ValueEventListener
 import com.squareup.picasso.Picasso
 
-class DeleteAdapter(val delete: deleteMatchData, val allMatchData:List<createMatchModal>):RecyclerView.Adapter<DeleteAdapter.DeleteViewHolder>() {
+class DeleteAdapter(val delete: deleteMatchData):RecyclerView.Adapter<DeleteAdapter.DeleteViewHolder>() {
 
 
+    private val allMatchData=ArrayList<createMatchModal>()
 
     inner class DeleteViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
         var binding=MatchLayoutBinding.bind(itemView)
@@ -35,27 +36,33 @@ class DeleteAdapter(val delete: deleteMatchData, val allMatchData:List<createMat
 
         val matchData=allMatchData[position]
 
-        holder.binding.fUploadDate.text=matchData.uploadDate
-        holder.binding.fUploadTime.text=matchData.uploadTime
-        holder.binding.fUploadRefId.text=matchData.refId
-        holder.binding.fUploadSlots.text=matchData.slots
-        holder.binding.fUploadMatchCategory.text=matchData.matchDuration
-        holder.binding.fMatchDate.text=matchData.matchDate
-        holder.binding.fMatchTime.text=matchData.matchTime
-        holder.binding.fRoomId.text=matchData.roomId
-        holder.binding.fRoomPass.text=matchData.roomPass
-        holder.binding.map.text=matchData.matchCategory
-        holder.binding.f1stPrize.text=matchData.prize
-        holder.binding.f2ndPrize.text=matchData.prize
-        holder.binding.f3rdPrize.text=matchData.prize
-        holder.binding.fEntryPrice.text="Entery Price: ₹${matchData.matchCharge}"
+        holder.binding.fUploadDate.text=matchData.uploadDate.toString()
+        holder.binding.fUploadTime.text=matchData.uploadTime.toString()
+        holder.binding.fUploadRefId.text=matchData.refId.toString()
+        holder.binding.fUploadSlots.text=matchData.slots.toString()
+        holder.binding.fUploadMatchCategory.text=matchData.matchDuration.toString()
+        holder.binding.fMatchDate.text=matchData.matchDate.toString()
+        holder.binding.fMatchTime.text=matchData.matchTime.toString()
+        holder.binding.fRoomId.text=matchData.roomId.toString()
+        holder.binding.fRoomPass.text=matchData.roomPass.toString()
+        holder.binding.map.text=matchData.matchCategory.toString()
+        holder.binding.f1stPrize.text=matchData.prize.toString()
+        holder.binding.f2ndPrize.text=matchData.prize.toString()
+        holder.binding.f3rdPrize.text=matchData.prize.toString()
+        holder.binding.fEntryPrice.text="Entery Price: ₹${matchData.matchCharge.toString()}"
 
-
+        Picasso.get().load(matchData.imageUrl).into(holder.binding.ftikcetImage)
 
     }
 
     override fun getItemCount(): Int {
        return allMatchData.size
+    }
+
+    fun updateMatchList(allMatchData : List<createMatchModal>){
+        this.allMatchData.clear()
+        this.allMatchData.addAll(allMatchData)
+        notifyDataSetChanged()
     }
 
 }
