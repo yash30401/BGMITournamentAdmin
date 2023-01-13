@@ -1,5 +1,8 @@
 package com.bgmi.tournament.bgmitournamentadmin.viewModel
 
+import android.app.AlertDialog
+import android.content.Context
+import android.content.DialogInterface
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -16,6 +19,12 @@ class matchViewModel:ViewModel() {
     init {
         repository=matchDataRepository().getInstance()
         repository.loadMatchData(_allMatchData)
+
+    }
+
+    fun deleteMatch(matchModal: createMatchModal, position: Int,context: Context){
+
+        repository.DeleteMatch(matchModal,position,context)
     }
 
 }

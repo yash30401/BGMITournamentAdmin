@@ -1,6 +1,7 @@
 package com.bgmi.tournament.bgmitournamentadmin.fragments.delete
 
 import android.app.AlertDialog
+import android.content.Context
 import android.content.DialogInterface
 import android.os.Bundle
 import android.util.Log
@@ -53,24 +54,18 @@ class DeleteIdAndPass : Fragment(R.layout.fragment_delete_id_and_pass),deleteMat
 
 
 
-    override fun deleteMatch(matchModal: createMatchModal, position: Int) {
+    override fun deleteMatch(matchModal: createMatchModal, position: Int,context: Context) {
 
-        val builder=AlertDialog.Builder(context)
+        val builder= AlertDialog.Builder(context)
         builder.setMessage("Are You Sure Want Delete This")
         builder.setCancelable(true)
         builder.setNegativeButton("Cancel", DialogInterface.OnClickListener { dialogInterface, i ->
             dialogInterface.dismiss()
         })
-
         builder.setPositiveButton("Delete", DialogInterface.OnClickListener { dialogInterface, i ->
 
-            val databaseReference=FirebaseDatabase.getInstance().getReference().child("Matches")
-            databaseReference.child(matchModal.matchDuration!!).child(matchModal.refId!!).removeValue().addOnSuccessListener {
-                Toast.makeText(context, "Deleted Successfully", Toast.LENGTH_SHORT).show()
-                adapter.notifyItemRemoved(position)
-            }.addOnFailureListener {
-                Toast.makeText(context, "Something Went Wrong!", Toast.LENGTH_SHORT).show()
-            }
+            viewModel.deleteMatch(matchModal,position,context)
+            adapter.notifyItemRemoved(position)
 
         }).show()
 

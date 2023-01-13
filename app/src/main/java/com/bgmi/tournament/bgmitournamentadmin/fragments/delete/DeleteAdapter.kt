@@ -1,5 +1,6 @@
 package com.bgmi.tournament.bgmitournamentadmin.fragments.delete
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,7 +25,7 @@ class DeleteAdapter(val delete: deleteMatchData):RecyclerView.Adapter<DeleteAdap
 
 
         viewHolder.binding.btnDelete.setOnClickListener {
-            delete.deleteMatch(allMatchData[viewHolder.adapterPosition],viewHolder.adapterPosition)
+            delete.deleteMatch(allMatchData[viewHolder.adapterPosition],viewHolder.adapterPosition,parent.context)
         }
 
 
@@ -67,6 +68,6 @@ class DeleteAdapter(val delete: deleteMatchData):RecyclerView.Adapter<DeleteAdap
 }
 
 interface deleteMatchData{
-    fun deleteMatch(matchModal: createMatchModal,position:Int)
+    fun deleteMatch(matchModal: createMatchModal,position:Int,context: Context)
 
 }

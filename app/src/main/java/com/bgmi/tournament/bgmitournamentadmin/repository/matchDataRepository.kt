@@ -1,6 +1,10 @@
 package com.bgmi.tournament.bgmitournamentadmin.repository
 
+import android.app.AlertDialog
+import android.content.Context
+import android.content.DialogInterface
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import com.bgmi.tournament.bgmitournamentadmin.modal.createMatchModal
 import com.google.firebase.database.*
@@ -10,6 +14,7 @@ class matchDataRepository {
     private val databaseReference:DatabaseReference=FirebaseDatabase.getInstance().getReference("Matches")
 
     @Volatile private var INSTANCE:matchDataRepository?=null
+
 
     fun getInstance():matchDataRepository{
 
@@ -55,6 +60,19 @@ class matchDataRepository {
             }
 
         })
+
+    }
+
+    fun DeleteMatch(matchModal: createMatchModal, position: Int,context: Context){
+
+        val databaseReference=FirebaseDatabase.getInstance().getReference().child("Matches")
+            databaseReference.child(matchModal.matchDuration!!).child(matchModal.refId!!).removeValue().addOnSuccessListener {
+                Toast.makeText(context, "Deleted Successfully", Toast.LENGTH_SHORT).show()
+
+            }.addOnFailureListener {
+                Toast.makeText(context, "Something Went Wrong!", Toast.LENGTH_SHORT).show()
+            }
+
 
     }
 
