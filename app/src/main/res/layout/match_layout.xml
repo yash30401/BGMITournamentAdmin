@@ -568,7 +568,6 @@
                             android:textAlignment="center"
                             android:layout_gravity="center"
                             android:textSize="14sp"
-                            android:textAllCaps="true"
                             android:fontFamily="@font/poppins"
                             />
 
