@@ -20,6 +20,7 @@ import android.widget.Toast
 import androidx.core.view.get
 import com.bgmi.tournament.bgmitournamentadmin.R
 import com.bgmi.tournament.bgmitournamentadmin.databinding.FragmentCreateMatchBinding
+import com.bgmi.tournament.bgmitournamentadmin.modal.ReferenceIdModal
 import com.bgmi.tournament.bgmitournamentadmin.modal.createMatchModal
 import com.google.android.gms.auth.api.signin.internal.Storage
 import com.google.android.gms.tasks.OnCompleteListener
@@ -50,6 +51,8 @@ class CreateMatch : Fragment(R.layout.fragment_create_match) {
     private lateinit var matchCategory:String
 
     private lateinit var firebaseDatabase: DatabaseReference
+    private lateinit var reference:DatabaseReference
+
     private lateinit var firebaseStorage: StorageReference
 
     private lateinit var progressDialog: ProgressDialog
@@ -60,6 +63,7 @@ class CreateMatch : Fragment(R.layout.fragment_create_match) {
 
 
         firebaseDatabase=FirebaseDatabase.getInstance().getReference("Matches")
+        reference=FirebaseDatabase.getInstance().getReference().child("ReferenceID")
 
         firebaseStorage=FirebaseStorage.getInstance().getReference().child("Matches")
 
@@ -183,6 +187,8 @@ class CreateMatch : Fragment(R.layout.fragment_create_match) {
         val matchData=createMatchModal(date,time,refID,matchCharge,slots,matchTime,matchDate,uri.toString(),matchTimeSpinner,
             matchCategory,roomId,roomPass,prizes)
 
+        val refIDData=ReferenceIdModal(refID)
+
         Log.d("TIME","${date.toString()}, ${time.toString()}")
 
 
@@ -201,6 +207,11 @@ class CreateMatch : Fragment(R.layout.fragment_create_match) {
         }.addOnFailureListener {
             Toast.makeText(context, "Check Your Connection", Toast.LENGTH_SHORT).show()
         }
+
+        reference.child(refID).setValue(refIDData)
+
+
+
     }
 
 
