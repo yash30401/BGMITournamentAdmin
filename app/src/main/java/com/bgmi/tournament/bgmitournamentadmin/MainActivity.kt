@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.FragmentManager
 import com.bgmi.tournament.bgmitournamentadmin.databinding.ActivityMainBinding
+import com.bgmi.tournament.bgmitournamentadmin.fragments.AddPlayer.AddPlayer
 import com.bgmi.tournament.bgmitournamentadmin.fragments.create.CreateMatch
 import com.bgmi.tournament.bgmitournamentadmin.fragments.delete.DeleteIdAndPass
 import com.bgmi.tournament.bgmitournamentadmin.fragments.upload.UploadIdAndPass
@@ -45,7 +46,7 @@ class MainActivity : AppCompatActivity() {
 
         when(id){
             R.id.addplayer->{
-
+                fragmentManager.beginTransaction().replace(R.id.homelayout,AddPlayer()).addToBackStack("home").commit()
             }
             R.id.createMatch-> {
                 fragmentManager.beginTransaction().replace(R.id.homelayout, CreateMatch()).addToBackStack("home").commit()
@@ -56,6 +57,7 @@ class MainActivity : AppCompatActivity() {
             R.id.DeleteIdPass->{
                 fragmentManager.beginTransaction().replace(R.id.homelayout, DeleteIdAndPass()).addToBackStack("home").commit()
             }
+
         }
 
     }
