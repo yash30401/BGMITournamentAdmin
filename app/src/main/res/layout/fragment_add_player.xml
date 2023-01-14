@@ -11,11 +11,12 @@
     tools:context=".fragments.AddPlayer.AddPlayer">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/refRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:listitem="@layout/addplayerlayout"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:spanCount="2"
+
         />
 
 </FrameLayout>
