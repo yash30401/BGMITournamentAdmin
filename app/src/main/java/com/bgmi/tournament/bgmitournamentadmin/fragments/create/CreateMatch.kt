@@ -1,7 +1,9 @@
 package com.bgmi.tournament.bgmitournamentadmin.fragments.create
 
 import android.app.Activity.RESULT_OK
+import android.app.AlertDialog
 import android.app.ProgressDialog
+import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
@@ -25,8 +27,7 @@ import com.bgmi.tournament.bgmitournamentadmin.modal.createMatchModal
 import com.google.android.gms.auth.api.signin.internal.Storage
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.OnFailureListener
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 import com.google.firebase.database.ktx.FirebaseDatabaseKtxRegistrar
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
@@ -52,6 +53,7 @@ class CreateMatch : Fragment(R.layout.fragment_create_match) {
 
     private lateinit var firebaseDatabase: DatabaseReference
     private lateinit var reference:DatabaseReference
+    private lateinit var query:DatabaseReference
 
     private lateinit var firebaseStorage: StorageReference
 
@@ -64,6 +66,7 @@ class CreateMatch : Fragment(R.layout.fragment_create_match) {
 
         firebaseDatabase=FirebaseDatabase.getInstance().getReference("Matches")
         reference=FirebaseDatabase.getInstance().getReference().child("ReferenceID")
+        query=FirebaseDatabase.getInstance().getReference().child("ReferenceID")
 
         firebaseStorage=FirebaseStorage.getInstance().getReference().child("Matches")
 
@@ -73,32 +76,7 @@ class CreateMatch : Fragment(R.layout.fragment_create_match) {
 
         binding.btnUploadImage.setOnClickListener {
 
-
-            if(binding.etDate.text.toString().isEmpty()){
-                binding.etDate.setError("Empty Date!")
-                binding.etDate.requestFocus()
-            }else if(binding.etTime.text.toString().isEmpty()){
-                binding.etTime.setError("Empty Time!")
-                binding.etTime.requestFocus()
-            }else if(binding.etRefId.text.toString().isEmpty()){
-                binding.etRefId.setError("Empty Reference ID!")
-                binding.etRefId.requestFocus()
-            }else if(binding.etMatchCharge.text.toString().isEmpty()){
-                binding.etMatchCharge.setError("Empty Match Charge!")
-                binding.etMatchCharge.requestFocus()
-            }else if(binding.etMaxParticipants.text.toString().isEmpty()){
-                binding.etMaxParticipants.setError("Empty Slots!")
-                binding.etMaxParticipants.requestFocus()
-            }else if(binding.etPrizes.text.toString().isEmpty()){
-                binding.etPrizes.setError("Empty Prizes!")
-                binding.etPrizes.requestFocus()
-            }else if(matchTimeSpinner.equals("Select Match Time")){
-                Toast.makeText(context, "Please Select Match Time", Toast.LENGTH_SHORT).show()
-            }else if(matchCategory.equals("Select Match Category")){
-                Toast.makeText(context, "Please Select Match Category", Toast.LENGTH_SHORT).show()
-            }else{
-                uploadImage()
-            }
+            uploadImage()
 
 
         }
@@ -127,7 +105,51 @@ class CreateMatch : Fragment(R.layout.fragment_create_match) {
         }
 
         binding.btnUpload.setOnClickListener {
-            uploadMatch()
+            query.addListenerForSingleValueEvent(object: ValueEventListener{
+                override fun onDataChange(snapshot: DataSnapshot) {
+
+                    if(binding.etDate.text.toString().isEmpty()){
+                        binding.etDate.setError("Empty Date!")
+                        binding.etDate.requestFocus()
+                    }else if(binding.etTime.text.toString().isEmpty()){
+                        binding.etTime.setError("Empty Time!")
+                        binding.etTime.requestFocus()
+                    }else if(binding.etRefId.text.toString().isEmpty()){
+                        binding.etRefId.setError("Empty Reference ID!")
+                        binding.etRefId.requestFocus()
+                    }else if(binding.etMatchCharge.text.toString().isEmpty()){
+                        binding.etMatchCharge.setError("Empty Match Charge!")
+                        binding.etMatchCharge.requestFocus()
+                    }else if(binding.etMaxParticipants.text.toString().isEmpty()){
+                        binding.etMaxParticipants.setError("Empty Slots!")
+                        binding.etMaxParticipants.requestFocus()
+                    }else if(binding.etPrizes.text.toString().isEmpty()){
+                        binding.etPrizes.setError("Empty Prizes!")
+                        binding.etPrizes.requestFocus()
+                    }else if(matchTimeSpinner.equals("Select Match Time")){
+                        Toast.makeText(context, "Please Select Match Time", Toast.LENGTH_SHORT).show()
+                    }else if(matchCategory.equals("Select Match Category")){
+                        Toast.makeText(context, "Please Select Match Category", Toast.LENGTH_SHORT).show()
+                    }else if(snapshot.hasChild(binding.etRefId.text.toString())){
+                        val builder= AlertDialog.Builder(context)
+                        builder.setMessage("Reference Id Already Exist")
+                        builder.setCancelable(true)
+                        builder.setNegativeButton("okay", DialogInterface.OnClickListener { dialogInterface, i ->
+                            dialogInterface.dismiss()
+                        }).show()
+
+                    }else{
+                        uploadMatch()
+                    }
+
+
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    TODO("Not yet implemented")
+                }
+
+            })
         }
 
     }
